@@ -1,0 +1,21 @@
+#include <vector>
+#include <tins/tins.h>
+#include <iostream>
+
+using namespace Tins;
+using namespace std;
+
+int main() {
+  std::vector<Packet> vt;
+  Sniffer sniffer("{99CDF236-324F-46A2-875C-1850F64FEF7}");
+  while (vt.size() != 40) {
+    vt.push_back(sniffer.next_packet());
+  }
+  for (const auto& packet : vt) {
+    if (packet.pdu()->find_pdu<IP>()) {
+      std::cout << "At Second: " << packet.timestamp().seconds()
+      << " - Source IP address: " << packet.pdu()->rfind_pdu<IP>().src_addr()
+      << std::endl;
+    }
+  }
+}
