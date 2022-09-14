@@ -1,1 +1,2 @@
 # Cplusplus_Packet_Sniffer
+C++ Packet Sniffer that was made by my group and I for a final project in my networking class. This was created in C++ using the Libtins library taken from Github. It is fully functioning and displays Source/Destination Port Number, Source/Destination IP address. It also uses the the network and transport layer and uses Unix Timestamp Format. With this, one can easily read what information is being sent from host machine to the web and vice versa.
